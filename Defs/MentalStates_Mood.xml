@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <MentalStateDef Abstract="True" Name="BaseMentalState">
+    <minTicksBeforeRecovery>10000</minTicksBeforeRecovery>
+    <recoveryMtbDays>0.3</recoveryMtbDays>
+  </MentalStateDef>
+
+  <!-- Mental breaks: minor -->
+
+  <MentalBreakDef>
+    <defName>Kleptomania</defName>
+    <mentalState>Kleptomania</mentalState>
+    <intensity>Minor</intensity>
+    <baseCommonality>1</baseCommonality>
+    <commonalityFactorPerPopulationCurve>
+      <points>
+        <li>(2, 0.2)</li>
+        <li>(5, 1)</li>
+      </points>
+    </commonalityFactorPerPopulationCurve>
+  </MentalBreakDef>
+  <MentalStateDef ParentName="BaseMentalState">
+    <defName>Steal</defName>
+    <stateClass>MentalState_Steal</stateClass>
+    <workerClass>MentalStateWorker_Steal</workerClass>
+    <label>kleptomania</label>
+    <category>Aggro</category>
+    <blockInteractionInitiationExcept>
+      <li>Insult</li>
+    </blockInteractionInitiationExcept>
+    <blockInteractionRecipientExcept>
+      <li>Insult</li>
+    </blockInteractionRecipientExcept>
+    <blockRandomInteraction>true</blockRandomInteraction>
+    <colonistsOnly>true</colonistsOnly>
+    <minTicksBeforeRecovery>100000</minTicksBeforeRecovery>
+    <maxTicksBeforeRecovery>100000</maxTicksBeforeRecovery>
+    <recoverFromSleep>true</recoverFromSleep>
+    <nameColor>(0.9,0.2,0.5)</nameColor>
+    <moodRecoveryThought>Catharsis</moodRecoveryThought>
+    <blockNormalThoughts>true</blockNormalThoughts>
+    <recoveryMessage>{0} is no longer stealing.</recoveryMessage>
+    <beginLetter>{0} has decided they want what {1} has.</beginLetter>
+    <beginLetterDef>ThreatSmall</beginLetterDef>
+    <baseInspectLine>Mental state: Kleptomania</baseInspectLine>
+    <allowBeatfire>true</allowBeatfire>
+  </MentalStateDef>
+
+
+</Defs>
